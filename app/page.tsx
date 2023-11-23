@@ -2,11 +2,7 @@ import React from 'react';
 import { Button } from './components/ui/button';
 
 const HomePage = () => {
-  return (
-    <div>
-      <Button>next country</Button>
-    </div>
-  );
+  return <div>{/* <Button>next country</Button> */}</div>;
 };
 
 export default HomePage;

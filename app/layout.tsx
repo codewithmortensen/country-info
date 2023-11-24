@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import './globals.css';
 import NavBar from './NavBar';
+import './globals.css';
+import ReactQueryProvider from './providers/ReactQueryProvider';
+import { ThemeProvider } from './providers/ThemeProvider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -18,10 +20,14 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={`${inter.className} antialiased`}>
-        <section>
-          <NavBar />
-        </section>
-        <section>{children}</section>
+        <ThemeProvider attribute='class' defaultTheme='light'>
+          <ReactQueryProvider>
+            <section>
+              <NavBar />
+            </section>
+            <section>{children}</section>
+          </ReactQueryProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
